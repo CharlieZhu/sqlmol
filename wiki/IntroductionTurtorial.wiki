@@ -1,0 +1,42 @@
+#labels Phase-Support,Phase-Implementation
+=Introduction and Turtorial =
+
+==SMILES parser==
+A sample picture from [http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html Daylight theroy]
+
+[http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html http://www.daylight.com/dayhtml/doc/theory/theory5.gif]
+
+Transform this SMILES string with [SQLMOL] function fn_sqlmol_smi2tbl
+{{{
+select * from dbo.fn_sqlmol_smi2tbl('CC1=CC(Br)CCC1')
+}}}
+A bond table is generated
+{{{
+nodeid	code	pnodeid	bond
+------- ------- ------- ----
+1	C 	0	- 
+2	C 	1	- 
+5	C 	2	= 
+6	C 	5	- 
+8	Br	6	- 
+11	C 	6	- 
+12	C 	11	- 
+13	C 	2	- 
+13	C 	12	- 	  
+}}}
+
+==Substructure search==
+More details about the data set source, importing processing please see [ChemicalSubstructureSearchinSQL this page] and comments in source code.
+Code blow show how it works
+{{{
+exec search_by_smi 'N(=O)(=O)cs'
+/*
+ The follow compoundid list should be returned
+--------------
+| compoundid |
++------------+
+|          4 |
+|        725 |
+--------------
+*/
+}}}

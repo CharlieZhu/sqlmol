@@ -1,0 +1,8 @@
+#labels Phase-Requirements,BUG
+==Faied cases==
+
+`CC=1C(=O)C=CC(C1)=O`, Ring not broken at single bond
+
+`P(c1ccccc1)(c1ccccc1)c1ccccc1`, Ring indexes duplicated in each branch
+
+[http://code.google.com/p/sqlmol/issues/list Other issues in list]

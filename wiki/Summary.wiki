@@ -1,0 +1,18 @@
+#labels Phase-Deploy,Phase-Support
+The long-term goal of this project is to provide chemical molecule handling functions in SQL, for all common RDBMS platforms. Currently it is implemented in T-SQL and tested under [http://www.microsoft.com/express/sql/default.aspx MS SQL Server express 2008].
+
+==Currently features==
+The paper [ChemicalSubstructureSearchinSQL Chemical Substructure Search in SQL] (Adel Golovin and Kim Henrick) shows a method to store chemical molecule graph in Relational Database Management
+Systems (RDBMS) and query by substrucure without cartridge installed on the database. That means the whole chemical registry system and the structure query is processed on pure SQL environment.
+
+SQLMOL currently provides SQL functions as a SMILES parser to transform the [SMILES SMILES] string into bond table. That helps
+  * Transforming and importing molecule graph data into RDBMS as atoms and bonds table.
+  * Parsing substructure query with [SMILES SMILES] and building SQL query string.
+
+Please see the [IntroductionTurtorial Brief Introduction and Demos].
+
+A [InstallationGuide installation guide] is also provied.
+
+THIS PROJECT IS STILL IN BETA, there're still [KnownIssues Known Issues].
+
+Welcome contact me, zh.charlie@gmail.com

@@ -1,0 +1,38 @@
+
+==Platform==
+SQLMOL is currently designed on [http://www.microsoft.com/express/sql/default.aspx MS SQL Server express 2008] and it is free if you have an Windows OS.
+
+==Check out code==
+Follow [http://code.google.com/p/sqlmol/source/checkout the structions].
+
+==Install SMILES parser==
+Under the Management Studio, create or select a database; open the following scripts run it (press F5) one by one. Then Done.
+ * `sqlmol_consts.sql`
+ * `sqlmol_helper.sql`
+ * `sqlmol.sql`
+
+Have a test
+{{{
+select * from dbo.fn_sqlmol_smi2tbl('CC1=CC(Br)CCC1')
+}}}
+A bond table is generated
+{{{
+nodeid	code	pnodeid	bond
+------- ------- ------- ----
+1	C 	0	- 
+2	C 	1	- 
+5	C 	2	= 
+6	C 	5	- 
+8	Br	6	- 
+11	C 	6	- 
+12	C 	11	- 
+13	C 	2	- 
+13	C 	12	- 	  
+}}}
+
+==Practicing substructure search with the parser==
+
+Please run the script `sqlmol_ci8003013.sql` one by one batch. If any error occured please check comments inside the file.
+
+
+Thanks for try and welcome contact to zh.charlie@mail.com

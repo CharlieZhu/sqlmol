@@ -1,0 +1,34 @@
+
+===Direction of bonds===
+Bond table generated from `fn_sqlmol_smi2tbl` as
+{{{
+nodeid, code, pnodeid, bond, bondid
+}}}
+`nodeid` appears after `pnodeid` in the SMILES string.
+
+Protocol shared between compound data generation and query generation
+Bond in compound is also a tuple
+{{{
+bond_type, n1, n2, bondid
+}}}
+n1 and n2 is nodeid. Code of n1 is smaller of equal than code of n2.
+If two nodes on a bond have the same code (is same element), n1 is the later one that appears in SMILES string.
+
+{{{
+-- compound bonds
+insert into sqlmol_compound_bonds(compoundid, btid, ceid1, ceid2)
+select
+	@cid,
+	(select btid from sqlmol_bond_type where symbol= b.bond_type),
+	case when e1.atom<= e2.atom then e1.ceid else e2.ceid end,
+	case when e1.atom<= e2.atom then e2.ceid else e1.ceid end
+from 
+	@bonds b ,
+	sqlmol_compound_elements e1,
+	sqlmol_compound_elements e2
+where
+	e1.compoundid=@cid and e2.compoundid=@cid
+	and b.nodeid=e1.nodeid
+	and b.pnodeid=e2.nodeid
+}}}
+

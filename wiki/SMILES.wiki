@@ -1,0 +1,17 @@
+#labels Phase-Design
+[http://en.wikipedia.org/wiki/SMILES SMILES] is [http://www.daylight.com/dayhtml/doc/theory/theory.smiles.html A Simplified Chemical Language]
+
+SMILES (Simplified Molecular Input Line Entry System) is a line notation (a typographical method using printable characters) for entering and representing molecules and reactions. 
+
+==SMILES is spanning tree==
+  In terms of a graph-based computational procedure, SMILES is a string obtained by printing the symbol nodes encountered in a depth-first tree traversal of a chemical graph. The chemical graph is first trimmed to remove hydrogen atoms and cycles are broken to turn it into a spanning tree. Where cycles have been broken, numeric suffix labels are included to indicate the connected nodes. Parentheses are used to indicate points of branching on the tree.
+
+SMILES 是生成树(spanning tree)结构
+树状结构通用的关系表达方法
+    ( nodeid[PK], parent-nodeid, nodecontents )
+树枝/连接是有实际意义的，是atom间的bond
+    ( nodeid[PK], parent-nodeid, nodecontents, bond )
+node
+    ( nodeid[PK], code ) nodeid= str-index-in-smiles, code-len= LEN(code)
+
+( nodeid, code, parent-nodeid, bond )

@@ -1,0 +1,3 @@
+=Programming T-SQL in case sensitive=
+
+[http://sqlserver2000.databases.aspfaq.com/how-can-i-make-my-sql-queries-case-sensitive.html How can I make my SQL queries case sensitive]

@@ -1,0 +1,14 @@
+
+==Enviaronment==
+ *Dell Optiplex 320, P4 3.0GHz, 2G RAM
+ *Windows XP SP3, 5.1.2600
+ *Microsoft SQL Server Express Edition with Advanced Services, 10.0.1600.22
+
+==Loading speed==
+40min
+sqlmol_compound 20152
+sqlmol_compound_elements 487417
+sqlmol_compound_bonds 532006
+sqlmol_bond_type 153
+
+average 26.4 bonds per compound
